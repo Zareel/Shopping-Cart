@@ -1,36 +1,5 @@
 let shop = document.querySelector("#shop");
 
-let shopItemsData = [
-  {
-    id: "zareel",
-    name: "Casual Shirt",
-    price: 45,
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    img: "images/img-1.jpg",
-  },
-  {
-    id: "shine",
-    name: "Office Shirt",
-    price: 100,
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    img: "images/img-2.jpg",
-  },
-  {
-    id: "shon",
-    name: "T-Shirt",
-    price: 100,
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    img: "images/img-3.jpg",
-  },
-  {
-    id: "coding",
-    name: "Men's Suit",
-    price: 300,
-    desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-    img: "images/img-4.jpg",
-  },
-];
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateShop = () => {
@@ -75,10 +44,10 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
-  localStorage.setItem("data", JSON.stringify(basket));
 
   //   console.log(basket);
   update(selectedItem.id);
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 let decrement = (id) => {
   let selectedItem = id;
@@ -90,9 +59,11 @@ let decrement = (id) => {
   else {
     search.item -= 1;
   }
-  localStorage.setItem("data", JSON.stringify(basket));
-  //   console.log(basket);
   update(selectedItem.id);
+  basket = basket.filter((x) => x.item !== 0);
+  //   console.log(basket);
+
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 let update = (id) => {
   let search = basket.find((x) => x.id === id);

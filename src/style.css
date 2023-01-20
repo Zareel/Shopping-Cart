@@ -8,6 +8,16 @@ h2 {
   font-weight: 600;
   font-size: 30px;
 }
+
+i {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .navbar {
   background-color: #5e548e;
   color: #fff;
@@ -71,7 +81,7 @@ h2 {
   gap: 10px;
 }
 
-.price-quantity {
+.pricequantity {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -80,7 +90,7 @@ h2 {
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   gap: 8px;
   font-size: 16px;
 }
